@@ -3,33 +3,528 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yolande NYA - MUNTU CURA</title>
+    <meta name="description" content="MUNTU CURA - Infirmière indépendante à domicile en Belgique. Soins infirmiers personnalisés et accompagnement selon la spécificité de chaque personne. Interventions exclusivement chez le patient (Halle et environs). Verpleegkundige aan huis - zorg op maat.">
+    <meta name="keywords" content="infirmière indépendante, soins à domicile, verpleegkundige aan huis, Halle, Lembeek, Beersel, soins personnalisés, Muntu Cura, Yolande NYA">
+    <meta name="author" content="Inf. Yolande NYA - MUNTU CURA">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="MUNTU CURA | Infirmière indépendante - Soins à domicile">
+    <meta property="og:description" content="Soin infirmier et accompagnement en lien avec la spécificité de la personne. Interventions exclusivement chez vous.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_BE">
+    <meta property="og:locale:alternate" content="nl_BE">
+    <meta property="og:url" content="https://www.muntu-cura.be">
+    <meta property="og:site_name" content="MUNTU CURA">
+
+    <title>MUNTU CURA | Infirmière Indépendante - Soins à Domicile (Belgique)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- EMAILJS (permet d'envoyer de vrais emails) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #f8f9fa;
-            color: #333;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        :root {
+            --primary: #00a8e0;
         }
-        h1 { color: #2c7a7b; }
-        .coming-soon {
-            font-size: 1.4em;
-            margin: 30px 0;
-            color: #555;
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .logo-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #00a8e0 0%, #0077a8 100%);
+        }
+        
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 25px 25px 50px -12px rgb(0 168 224 / 0.15);
+        }
+        
+        .heartbeat {
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        .lang-btn.active {
+            background-color: #00a8e0;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgb(0 168 224);
         }
     </style>
 </head>
-<body>
-    <h1>MUNTU CURA</h1>
-    <p class="coming-soon">Site en construction</p>
-    <p>Yolande NYA<br>
-       Infirmière indépendante<br><br>
-       Soins infirmiers et accompagnement personnalisé
-    </p>
-    <p>Le site sera bientôt disponible.</p>
-    <p>Contact : <a href="mailto:yolandenya@yahoo.fr">yolandenya@yahoo.fr</a><br>
-       Tél : 0032 470 85 25 16
-    </p>
+<body class="font-sans">
+
+    <!-- COOKIE BANNER (RGPD conforme) -->
+    <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 bg-white shadow-2xl border border-gray-200 rounded-3xl p-6 max-w-md z-[9999] hidden">
+        <p class="text-sm text-gray-700 mb-4">
+            Nous utilisons des cookies pour améliorer votre expérience. 
+            En continuant, vous acceptez notre <a href="#" class="underline text-[#00a8e0]">Politique de confidentialité (RGPD)</a>.
+        </p>
+        <div class="flex gap-3">
+            <button onclick="acceptCookies()" class="flex-1 bg-[#00a8e0] text-white font-medium py-3 rounded-2xl text-sm">Accepter</button>
+            <button onclick="rejectCookies()" class="flex-1 border border-gray-300 font-medium py-3 rounded-2xl text-sm">Refuser</button>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <nav class="max-w-screen-2xl mx-auto px-6 lg:px-12">
+            <div class="flex items-center justify-between py-5">
+                
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-[#00a8e0] rounded-3xl flex items-center justify-center shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-white" viewBox="0 0 200 200" fill="none">
+                            <rect x="40" y="40" width="120" height="120" rx="20" stroke="white" stroke-width="18"/>
+                            <path d="M60 100 L75 100 L85 70 L95 130 L105 80 L115 120 L130 100 L145 100" 
+                                  stroke="#ff2d55" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" class="heartbeat"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="logo-font text-3xl font-bold text-[#00a8e0]">MUNTU CURA</h1>
+                        <p class="text-xs text-gray-500 -mt-1 tracking-widest">SOINS À DOMICILE</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8 text-base font-medium">
+                    <a href="#accueil" onclick="navigateToSection('accueil')" class="hover:text-[#00a8e0]">Accueil</a>
+                    <a href="#a-propos" onclick="navigateToSection('a-propos')" class="hover:text-[#00a8e0]">À propos</a>
+                    <a href="#services" onclick="navigateToSection('services')" class="hover:text-[#00a8e0]">Services</a>
+                    <a href="#contact" onclick="navigateToSection('contact')" class="hover:text-[#00a8e0]">Contact</a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-gray-100 rounded-3xl p-1 text-sm font-medium">
+                    <button onclick="switchLanguage('fr')" id="lang-fr" class="lang-btn active px-6 py-2 rounded-3xl">🇫🇷 FR</button>
+                    <button onclick="switchLanguage('nl')" id="lang-nl" class="lang-btn px-6 py-2 rounded-3xl">🇳🇱 NL</button>
+                </div>
+
+                <!-- Phone -->
+                <a href="tel:+32470852516" 
+                   class="hidden md:flex items-center gap-2 bg-[#00a8e0] hover:bg-[#0077a8] text-white px-6 py-3 rounded-3xl font-semibold">
+                    <i class="fas fa-phone"></i>
+                    <span class="font-mono">0470 85 25 16</span>
+                </a>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-gray-700">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t py-6 px-6">
+                <div class="flex flex-col gap-6 text-lg">
+                    <a href="#accueil" onclick="toggleMobileMenu()" class="hover:text-[#00a8e0]">Accueil</a>
+                    <a href="#a-propos" onclick="toggleMobileMenu()" class="hover:text-[#00a8e0]">À propos</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="hover:text-[#00a8e0]">Services</a>
+                    <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-[#00a8e0]">Contact</a>
+                    <a href="tel:+32470852516" class="block text-center bg-[#00a8e0] text-white py-4 rounded-3xl font-semibold">
+                        📞 0470 85 25 16
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section id="accueil" class="hero-bg text-white py-24 md:py-32">
+            <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl text-sm font-medium">
+                        <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                        Infirmière indépendante • Soins exclusivement à domicile
+                    </div>
+
+                    <h1 id="hero-title" class="text-5xl md:text-6xl lg:text-7xl font-bold leading-none logo-font">
+                        MUNTU CURA
+                    </h1>
+                    <p id="hero-subtitle" class="text-3xl md:text-4xl text-white/90 font-light">Votre santé, votre rythme, chez vous</p>
+
+                    <p id="hero-description" class="text-xl max-w-xl leading-relaxed">
+                        Soin infirmier et accompagnement en lien avec la spécificité de la personne.<br>
+                        <span class="opacity-90 text-lg">Interventions uniquement chez le patient (Halle et environs).</span>
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" onclick="navigateToSection('contact')" 
+                           class="bg-white text-[#00a8e0] font-semibold px-8 py-4 rounded-3xl flex items-center gap-3 text-lg hover:shadow-2xl">
+                            <i class="fas fa-calendar-check"></i>
+                            <span id="btn-rdv">Prendre rendez-vous à domicile</span>
+                        </a>
+                        <a href="tel:+32470852516" 
+                           class="border-2 border-white font-semibold px-8 py-4 rounded-3xl flex items-center gap-3 text-lg hover:bg-white/10">
+                            <i class="fas fa-phone"></i>
+                            <span id="btn-call">0470 85 25 16</span>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-8 text-sm">
+                        <div>
+                            <i class="fas fa-user-nurse text-3xl"></i>
+                            <div id="nurse-name" class="mt-2">Inf. Yolande NYA<br>Responsable de soins généraux</div>
+                        </div>
+                        <div class="text-xs bg-white/20 px-5 py-3 rounded-3xl">
+                            B2C • Patients particuliers<br>
+                            B2B • Collaborations professionnelles
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero image -->
+                <div class="relative">
+                    <img src="https://picsum.photos/id/1015/900/1100" alt="Infirmière MUNTU CURA en visite à domicile" 
+                         class="rounded-3xl shadow-2xl w-full">
+                    <div class="absolute -bottom-6 -left-6 bg-white text-gray-800 px-6 py-4 rounded-3xl shadow-xl flex items-center gap-3 text-sm font-medium">
+                        <i class="fas fa-heart text-red-500 text-2xl heartbeat"></i>
+                        <span id="zorg-op-maat">zorg op maat bij u thuis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- À PROPOS -->
+        <section id="a-propos" class="py-20 bg-gray-50">
+            <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5">
+                        <img src="https://picsum.photos/id/1005/800/900" alt="Yolande NYA - Infirmière indépendante à domicile" 
+                             class="rounded-3xl shadow-2xl w-full">
+                    </div>
+                    <div class="lg:col-span-7">
+                        <h2 id="about-title" class="text-5xl font-semibold mb-6">À propos de MUNTU CURA</h2>
+                        
+                        <p id="about-text" class="text-lg text-gray-600 leading-relaxed">
+                            MUNTU CURA est une entreprise d'infirmière indépendante créée en décembre 2024. 
+                            Je me déplace exclusivement chez vous pour des soins infirmiers généraux et un accompagnement humain, 
+                            respectueux et entièrement adapté à la spécificité de chaque personne.
+                        </p>
+
+                        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div>
+                                <i class="fas fa-home text-5xl text-[#00a8e0]"></i>
+                                <h4 id="soins-domicile-title" class="font-semibold mt-4">Soins exclusivement à domicile</h4>
+                                <p id="soins-domicile-text" class="text-sm text-gray-600">Halle, Lembeek, Beersel et environs</p>
+                            </div>
+                            <div>
+                                <i class="fas fa-language text-5xl text-[#00a8e0]"></i>
+                                <h4 id="bilingue-title" class="font-semibold mt-4">Bilingue</h4>
+                                <p id="bilingue-text" class="text-sm text-gray-600">Français • Nederlands</p>
+                            </div>
+                            <div>
+                                <blockquote id="muntu-quote" class="italic text-gray-600 border-l-4 border-[#00a8e0] pl-6">
+                                    « Muntu » signifie « personne » dans les langues bantu.<br>
+                                    Chaque patient est unique et au centre de nos soins à domicile.
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="py-20">
+            <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
+                <div class="text-center mb-16">
+                    <span class="bg-[#00a8e0] text-white text-sm font-medium px-8 py-3 rounded-3xl">NOS SERVICES • ONZE DIENSTEN</span>
+                    <h2 id="services-title" class="text-5xl font-semibold mt-6">Des soins sur mesure, chez vous</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card bg-white border rounded-3xl p-8">
+                        <div class="text-5xl mb-6">💉</div>
+                        <h3 id="service1-title" class="text-2xl font-semibold">Injections &amp; Prises de sang</h3>
+                        <p id="service1-desc" class="text-gray-600 mt-3">Injections, prises de sang, vaccins et traitements intraveineux directement chez vous.</p>
+                    </div>
+                    <div class="service-card bg-white border rounded-3xl p-8">
+                        <div class="text-5xl mb-6">🩹</div>
+                        <h3 id="service2-title" class="text-2xl font-semibold">Pansements &amp; Soins de plaies</h3>
+                        <p id="service2-desc" class="text-gray-600 mt-3">Soins de plaies chroniques, post-opératoires et ulcères à domicile.</p>
+                    </div>
+                    <div class="service-card bg-white border rounded-3xl p-8">
+                        <div class="text-5xl mb-6">❤️</div>
+                        <h3 id="service3-title" class="text-2xl font-semibold">Accompagnement &amp; Soins chroniques</h3>
+                        <p id="service3-desc" class="text-gray-600 mt-3">Diabète, hypertension, maladies chroniques, soins palliatifs chez vous.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT (FORMULAIRE FONCTIONNEL) -->
+        <section id="contact" class="py-20 bg-[#00a8e0] text-white">
+            <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
+                <div class="grid lg:grid-cols-12 gap-16">
+                    <div class="lg:col-span-5">
+                        <h2 id="contact-title" class="text-5xl font-semibold mb-8">Prêt à prendre soin de vous chez vous ?</h2>
+                        
+                        <div class="space-y-10">
+                            <div class="flex gap-6">
+                                <i class="fas fa-phone text-4xl mt-1"></i>
+                                <div>
+                                    <p class="font-semibold">Téléphone (appel ou WhatsApp)</p>
+                                    <a href="tel:+32470852516" class="text-3xl font-medium">0470 85 25 16</a>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <i class="fas fa-envelope text-4xl mt-1"></i>
+                                <div>
+                                    <p class="font-semibold">Email</p>
+                                    <a href="mailto:yolandenya@yahoo.fr" class="text-xl">yolandenya@yahoo.fr</a>
+                                </div>
+                            </div>
+                            <div class="text-sm opacity-90">
+                                Interventions exclusivement à domicile sur Halle, Lembeek, Beersel et environs.<br>
+                                Pas de cabinet médical – je viens chez vous.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORMULAIRE QUI ENVOIE VRAIMENT L'EMAIL -->
+                    <div class="lg:col-span-7 bg-white/10 backdrop-blur-lg rounded-3xl p-10">
+                        <form id="contactForm" class="space-y-8">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm mb-2">Nom &amp; Prénom</label>
+                                    <input type="text" name="user_name" id="name" required 
+                                           class="w-full px-6 py-5 rounded-3xl border border-white/30 bg-white/10 focus:outline-none focus:border-white text-white placeholder:text-white/70">
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-2">Téléphone</label>
+                                    <input type="tel" name="user_phone" id="phone" required 
+                                           class="w-full px-6 py-5 rounded-3xl border border-white/30 bg-white/10 focus:outline-none focus:border-white text-white placeholder:text-white/70">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-2">Votre besoin (soins à domicile)</label>
+                                <textarea name="message" id="message" rows="5" placeholder="Ex : pansement, injection, suivi diabète..." 
+                                          class="w-full px-6 py-5 rounded-3xl border border-white/30 bg-white/10 focus:outline-none focus:border-white text-white placeholder:text-white/70"></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn"
+                                    class="w-full py-6 bg-white text-[#00a8e0] font-semibold text-xl rounded-3xl flex items-center justify-center gap-3 hover:scale-105">
+                                <i class="fas fa-paper-plane"></i>
+                                <span id="btn-send">Envoyer ma demande</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#002f3f] text-white py-16">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-12 gap-12">
+                <div class="md:col-span-4">
+                    <div class="flex items-center gap-3 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" viewBox="0 0 200 200" fill="none">
+                            <rect x="40" y="40" width="120" height="120" rx="20" stroke="white" stroke-width="18"/>
+                            <path d="M60 100 L75 100 L85 70 L95 130 L105 80 L115 120 L130 100 L145 100" stroke="#ff2d55" stroke-width="12"/>
+                        </svg>
+                        <h2 class="logo-font text-4xl">MUNTU CURA</h2>
+                    </div>
+                    <p id="footer-desc" class="text-gray-400">Infirmière indépendante • Soins exclusivement à domicile</p>
+                    <p class="text-xs text-gray-500 mt-12">© 2025 MUNTU CURA • Entreprise indépendante • BCE 1051.693.460</p>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <h4 class="font-semibold mb-6">Liens rapides</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#accueil" class="hover:text-[#00a8e0]">Accueil</a></li>
+                        <li><a href="#a-propos" class="hover:text-[#00a8e0]">À propos</a></li>
+                        <li><a href="#services" class="hover:text-[#00a8e0]">Services à domicile</a></li>
+                    </ul>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <h4 class="font-semibold mb-6">Informations légales</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-[#00a8e0]">Politique de confidentialité (RGPD)</a></li>
+                        <li><a href="#" class="hover:text-[#00a8e0]">Conditions générales</a></li>
+                        <li><a href="#" class="hover:text-[#00a8e0]">Mentions légales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="md:col-span-4 text-sm text-gray-400">
+                    B2C : Patients particuliers<br>
+                    B2B : Collaborations avec maisons de repos, mutuelles, etc.<br><br>
+                    Interventions rapides à domicile sur Halle et sa région.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ====================== EMAILJS - CONFIGURATION (À REMPLACER) ======================
+        // 1. Crée un compte gratuit sur https://www.emailjs.com
+        // 2. Récupère ta Public Key, Service ID et Template ID
+        // 3. Remplace les 3 lignes ci-dessous par tes vraies valeurs
+
+        emailjs.init("VOTRE_PUBLIC_KEY_ICI");   // ← Remplace par ta Public Key (ex: user_abc123)
+
+        const SERVICE_ID = "VOTRE_SERVICE_ID";      // ← Ton Service ID (ex: service_abc123)
+        const TEMPLATE_ID = "VOTRE_TEMPLATE_ID";    // ← Ton Template ID (ex: template_abc123)
+
+        // ====================== TRADUCTIONS FR / NL ======================
+        const translations = {
+            fr: {
+                'hero-title': 'MUNTU CURA',
+                'hero-subtitle': 'Votre santé, votre rythme, chez vous',
+                'hero-description': 'Soin infirmier et accompagnement en lien avec la spécificité de la personne.<br><span class="opacity-90 text-lg">Interventions uniquement chez le patient (Halle et environs).</span>',
+                'btn-rdv': 'Prendre rendez-vous à domicile',
+                'btn-call': '0470 85 25 16',
+                'nurse-name': 'Inf. Yolande NYA<br>Responsable de soins généraux',
+                'zorg-op-maat': 'zorg op maat bij u thuis',
+                'about-title': 'À propos de MUNTU CURA',
+                'about-text': 'MUNTU CURA est une entreprise d\'infirmière indépendante créée en décembre 2024. Je me déplace exclusivement chez vous pour des soins infirmiers généraux et un accompagnement humain, respectueux et entièrement adapté à la spécificité de chaque personne.',
+                'soins-domicile-title': 'Soins exclusivement à domicile',
+                'soins-domicile-text': 'Halle, Lembeek, Beersel et environs',
+                'bilingue-title': 'Bilingue',
+                'bilingue-text': 'Français • Nederlands',
+                'muntu-quote': '« Muntu » signifie « personne » dans les langues bantu.<br>Chaque patient est unique et au centre de nos soins à domicile.',
+                'services-title': 'Des soins sur mesure, chez vous',
+                'service1-title': 'Injections & Prises de sang',
+                'service1-desc': 'Injections, prises de sang, vaccins et traitements intraveineux directement chez vous.',
+                'service2-title': 'Pansements & Soins de plaies',
+                'service2-desc': 'Soins de plaies chroniques, post-opératoires et ulcères à domicile.',
+                'service3-title': 'Accompagnement & Soins chroniques',
+                'service3-desc': 'Diabète, hypertension, maladies chroniques, soins palliatifs chez vous.',
+                'contact-title': 'Prêt à prendre soin de vous chez vous ?',
+                'btn-send': 'Envoyer ma demande',
+                'footer-desc': 'Infirmière indépendante • Soins exclusivement à domicile'
+            },
+            nl: {
+                'hero-title': 'MUNTU CURA',
+                'hero-subtitle': 'Uw gezondheid, uw ritme, bij u thuis',
+                'hero-description': 'Verpleegkundige zorg en begeleiding afgestemd op de specifieke behoeften van de persoon.<br><span class="opacity-90 text-lg">Enkel interventies bij de patiënt (Halle en omgeving).</span>',
+                'btn-rdv': 'Afspraak aan huis maken',
+                'btn-call': '0470 85 25 16',
+                'nurse-name': 'Verpleegkundige Yolande NYA<br>Verantwoordelijke algemene zorg',
+                'zorg-op-maat': 'zorg op maat bij u thuis',
+                'about-title': 'Over MUNTU CURA',
+                'about-text': 'MUNTU CURA is een onafhankelijke verpleegkundige onderneming opgericht in december 2024. Ik kom uitsluitend bij u thuis voor algemene verpleegkundige zorg en een menselijke, respectvolle begeleiding volledig afgestemd op de specifieke behoeften van elke persoon.',
+                'soins-domicile-title': 'Zorg uitsluitend aan huis',
+                'soins-domicile-text': 'Halle, Lembeek, Beersel en omgeving',
+                'bilingue-title': 'Talen',
+                'bilingue-text': 'Frans • Nederlands',
+                'muntu-quote': '« Muntu » betekent « persoon » in de Bantoetalen.<br>Elke patiënt is uniek en staat centraal in onze zorg aan huis.',
+                'services-title': 'Zorg op maat, bij u thuis',
+                'service1-title': 'Injecties & Bloedafnames',
+                'service1-desc': 'Injecties, bloedafnames, vaccins en intraveneuze behandelingen bij u thuis.',
+                'service2-title': 'Wondverzorging & Verbanden',
+                'service2-desc': 'Chronische wonden, post-operatieve zorg en ulcera aan huis.',
+                'service3-title': 'Begeleiding & Chronische zorg',
+                'service3-desc': 'Diabetes, hypertensie, chronische aandoeningen, palliatieve zorg bij u thuis.',
+                'contact-title': 'Klaar om voor u te zorgen bij u thuis?',
+                'btn-send': 'Stuur mijn aanvraag',
+                'footer-desc': 'Onafhankelijke verpleegkundige • Zorg uitsluitend aan huis'
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
+            document.getElementById('lang-nl').classList.toggle('active', lang === 'nl');
+            document.documentElement.lang = lang;
+
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) element.innerHTML = translations[lang][key];
+            });
+
+            localStorage.setItem('muntuCuraLang', lang);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function navigateToSection(section) {
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+            if (window.innerWidth < 768) toggleMobileMenu();
+        }
+
+        function acceptCookies() {
+            document.getElementById('cookieBanner').classList.add('hidden');
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        function rejectCookies() {
+            document.getElementById('cookieBanner').classList.add('hidden');
+            localStorage.setItem('cookiesAccepted', 'false');
+        }
+
+        // ====================== FORMULAIRE FONCTIONNEL EMAILJS ======================
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Envoi en cours...`;
+            btn.disabled = true;
+
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value,
+                to_email: "yolandenya@yahoo.fr"
+            };
+
+            emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+                .then(() => {
+                    alert(currentLang === 'fr' 
+                        ? '✅ Message envoyé avec succès ! Yolande NYA vous contactera très rapidement.' 
+                        : '✅ Bericht succesvol verzonden! Yolande NYA neemt spoedig contact met u op.');
+                    document.getElementById('contactForm').reset();
+                })
+                .catch((error) => {
+                    console.error('EmailJS error:', error);
+                    alert(currentLang === 'fr' 
+                        ? '❌ Erreur lors de l\'envoi. Merci d\'appeler directement le 0470 85 25 16.' 
+                        : '❌ Fout bij verzenden. Bel alstublieft direct 0470 85 25 16.');
+                })
+                .finally(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                });
+        });
+
+        // ====================== INITIALISATION ======================
+        window.onload = function() {
+            console.log('%c✅ MUNTU CURA – Site complet mis à jour (formulaire EmailJS fonctionnel)', 
+                        'background:#00a8e0;color:#fff;padding:4px 8px;border-radius:9999px;font-size:10px');
+            
+            const savedLang = localStorage.getItem('muntuCuraLang') || 'fr';
+            switchLanguage(savedLang);
+            
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => document.getElementById('cookieBanner').classList.remove('hidden'), 1500);
+            }
+        };
+    </script>
 </body>
 </html>
