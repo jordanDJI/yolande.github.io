@@ -3,528 +3,869 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MUNTU CURA - Infirmière indépendante à domicile en Belgique. Soins infirmiers personnalisés et accompagnement selon la spécificité de chaque personne. Interventions exclusivement chez le patient (Halle et environs). Verpleegkundige aan huis - zorg op maat.">
-    <meta name="keywords" content="infirmière indépendante, soins à domicile, verpleegkundige aan huis, Halle, Lembeek, Beersel, soins personnalisés, Muntu Cura, Yolande NYA">
-    <meta name="author" content="Inf. Yolande NYA - MUNTU CURA">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="MUNTU CURA | Infirmière indépendante - Soins à domicile">
-    <meta property="og:description" content="Soin infirmier et accompagnement en lien avec la spécificité de la personne. Interventions exclusivement chez vous.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_BE">
-    <meta property="og:locale:alternate" content="nl_BE">
-    <meta property="og:url" content="https://www.muntu-cura.be">
-    <meta property="og:site_name" content="MUNTU CURA">
+    <meta name="description" content="MUNTU CURA – Infirmière indépendante pour cliniques, hôpitaux et maisons de repos en Belgique. Prestations B2B flexibles et personnalisées.">
+    <title>MUNTU CURA | Infirmière Indépendante – Partenaire B2B de Soins</title>
 
-    <title>MUNTU CURA | Infirmière Indépendante - Soins à Domicile (Belgique)</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- EMAILJS (permet d'envoyer de vrais emails) -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
-        
-        :root {
-            --primary: #00a8e0;
-        }
-        
-        * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
-        }
-        
-        .logo-font {
-            font-family: 'Playfair Display', sans-serif;
-        }
 
-        .hero-bg {
-            background: linear-gradient(135deg, #00a8e0 0%, #0077a8 100%);
+    <style>
+        :root {
+            --ink: #0b1929;
+            --ink-mid: #1a3a5c;
+            --sky: #00a8e0;
+            --sky-deep: #006fa3;
+            --sky-glow: rgba(0,168,224,.15);
+            --gold: #c9a84c;
+            --cream: #f7f4ef;
+            --muted: #6b7b8d;
+            --white: #ffffff;
+            --section-alt: #f2f6fa;
         }
-        
-        .service-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+        .serif{font-family:'Cormorant Garamond',serif;}
+        .container{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);}
+        .tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:999px;background:var(--sky-glow);color:var(--sky);border:1px solid rgba(0,168,224,.25);}
+        .btn-primary{display:inline-flex;align-items:center;gap:.7rem;padding:1rem 2rem;border-radius:999px;background:var(--sky);color:#fff;font-weight:600;font-size:.95rem;text-decoration:none;border:none;cursor:pointer;transition:background .25s,transform .2s,box-shadow .25s;}
+        .btn-primary:hover{background:var(--sky-deep);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,168,224,.3);}
+        .btn-ghost{display:inline-flex;align-items:center;gap:.7rem;padding:.95rem 1.8rem;border-radius:999px;border:1.5px solid currentColor;background:transparent;color:inherit;font-weight:500;font-size:.95rem;text-decoration:none;cursor:pointer;transition:background .2s;}
+        .btn-ghost:hover{background:rgba(255,255,255,.1);}
+        .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;}
+        .reveal.visible{opacity:1;transform:none;}
+        .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .8s ease,transform .8s ease;}
+        .reveal-left.visible{opacity:1;transform:none;}
+        .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .8s ease,transform .8s ease;}
+        .reveal-right.visible{opacity:1;transform:none;}
+
+        /* NAVBAR */
+        #navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 0;transition:background .3s,box-shadow .3s,padding .3s;}
+        #navbar.scrolled{background:rgba(11,25,41,.96);backdrop-filter:blur(16px);box-shadow:0 2px 24px rgba(0,0,0,.18);padding:.8rem 0;}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+        .logo-wrap{display:flex;align-items:center;gap:.9rem;text-decoration:none;}
+        .logo-icon{width:44px;height:44px;background:var(--sky);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+        .logo-text-main{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:#fff;line-height:1;}
+        .logo-text-sub{font-size:.6rem;letter-spacing:.18em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-top:.15rem;}
+        .nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none;}
+        .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;}
+        .nav-links a:hover{color:var(--sky);}
+        .lang-switch{display:flex;background:rgba(255,255,255,.08);border-radius:999px;padding:3px;}
+        .lang-switch button{padding:.35rem .9rem;border-radius:999px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;}
+        .lang-switch button.active{background:var(--sky);color:#fff;}
+        .hamburger{display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;}
+        .mobile-nav{display:none;position:fixed;inset:0;background:var(--ink);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
+        .mobile-nav.open{display:flex;}
+        .mobile-nav a{color:white;font-size:1.5rem;text-decoration:none;}
+        .mobile-nav-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;}
+
+        /* HERO */
+        #hero{min-height:100vh;background:var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;padding-top:5rem;}
+        .hero-mesh{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(0,168,224,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(0,111,163,.1) 0%,transparent 60%);}
+        .hero-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:80px 80px;}
+        .hero-content{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:6rem 0;}
+        .hero-eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1.8rem;}
+        .hero-dot{width:8px;height:8px;border-radius:50%;background:var(--sky);animation:pdot 2s infinite;}
+        @keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+        .hero-eyebrow-text{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+        .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,7vw,6rem);font-weight:700;color:#fff;line-height:1.02;margin-bottom:1.5rem;}
+        .hero-title .accent{color:var(--sky);font-style:italic;}
+        .hero-subtitle{font-size:1.05rem;color:rgba(255,255,255,.55);line-height:1.75;max-width:480px;margin-bottom:2.5rem;}
+        .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3.5rem;}
+        .hero-badges{display:flex;gap:2rem;}
+        .hero-badge{text-align:center;}
+        .hero-badge-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--sky);line-height:1;}
+        .hero-badge-label{font-size:.7rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-top:.3rem;}
+        .hero-visual{position:relative;}
+        .hero-img-wrap{border-radius:24px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5);}
+        .hero-img-wrap img{width:100%;height:560px;object-fit:cover;display:block;}
+        .hero-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(11,25,41,.65) 100%);}
+        .hero-card{position:absolute;bottom:-20px;left:-24px;background:rgba(255,255,255,.08);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:1.2rem 1.6rem;display:flex;align-items:center;gap:1rem;color:white;}
+        .hero-card-icon{width:44px;height:44px;background:var(--sky);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+        .hero-card-label{font-size:.7rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;}
+        .hero-card-value{font-weight:600;font-size:.92rem;margin-top:.15rem;}
+        .hero-card2{position:absolute;top:24px;right:-20px;background:var(--sky);border-radius:14px;padding:1rem 1.4rem;color:white;font-weight:600;box-shadow:0 12px 32px rgba(0,168,224,.4);}
+        .hero-card2 .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;line-height:1;}
+
+        /* PARTNERS */
+        #partners{padding:4.5rem 0;background:var(--section-alt);}
+        .partners-label{text-align:center;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
+        .partners-logos{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;}
+        .partner-pill{display:flex;align-items:center;gap:.7rem;padding:.75rem 1.5rem;border-radius:999px;border:1.5px solid #dde4ec;background:white;font-size:.85rem;font-weight:500;color:var(--ink-mid);transition:border-color .2s,box-shadow .2s;}
+        .partner-pill:hover{border-color:var(--sky);box-shadow:0 4px 16px var(--sky-glow);}
+        .partner-pill i{color:var(--sky);}
+
+        /* SERVICES */
+        #services{padding:7rem 0;}
+        .section-header{text-align:center;margin-bottom:4rem;}
+        .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.5rem);font-weight:700;color:var(--ink);line-height:1.1;margin-top:.8rem;}
+        .section-sub{font-size:1rem;color:var(--muted);margin-top:.9rem;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.65;}
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+        .service-card{background:var(--section-alt);border-radius:20px;padding:2.2rem 2rem;border:1.5px solid transparent;transition:all .3s;position:relative;overflow:hidden;}
+        .service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,168,224,.06),transparent);opacity:0;transition:opacity .3s;}
+        .service-card:hover{border-color:rgba(0,168,224,.3);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,168,224,.08);}
+        .service-card:hover::before{opacity:1;}
+        .service-icon{width:52px;height:52px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.4rem;}
+        .service-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;margin-bottom:.7rem;}
+        .service-desc{font-size:.9rem;color:var(--muted);line-height:1.65;}
+        .service-arrow{margin-top:1.5rem;display:inline-flex;align-items:center;gap:.5rem;color:var(--sky);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;}
+
+        /* NUMBERS */
+        #numbers{padding:6rem 0;background:var(--ink);position:relative;overflow:hidden;}
+        #numbers::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(0,168,224,.08),transparent);}
+        .numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative;z-index:1;}
+        .number-item{text-align:center;}
+        .number-val{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,4.5rem);font-weight:700;color:white;line-height:1;}
+        .number-val span{color:var(--sky);}
+        .number-label{font-size:.78rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.12em;margin-top:.6rem;}
+        .number-divider{width:32px;height:2px;background:var(--sky);margin:.8rem auto 0;}
+
+        /* ABOUT */
+        #about{padding:7rem 0;background:var(--section-alt);}
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+        .about-img-wrap{position:relative;}
+        .about-img{border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.12);}
+        .about-img img{width:100%;height:560px;object-fit:cover;display:block;}
+        .about-quote-card{position:absolute;bottom:-2rem;right:-2rem;background:var(--ink);color:white;border-radius:16px;padding:1.6rem;max-width:260px;box-shadow:0 16px 40px rgba(0,0,0,.2);}
+        .about-quote-card blockquote{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;line-height:1.55;}
+        .about-quote-card cite{display:block;font-size:.7rem;color:var(--sky);text-transform:uppercase;letter-spacing:.12em;margin-top:.8rem;font-style:normal;}
+        .about-content .tag{margin-bottom:1rem;}
+        .about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;line-height:1.15;margin-bottom:1.4rem;}
+        .about-text{font-size:.98rem;color:var(--muted);line-height:1.75;margin-bottom:1rem;}
+        .about-features{display:flex;flex-direction:column;gap:.9rem;margin-top:1.8rem;}
+        .about-feature{display:flex;align-items:center;gap:.9rem;font-size:.92rem;font-weight:500;}
+        .about-feature i{color:var(--sky);width:20px;}
+
+        /* PROCESS */
+        #process{padding:7rem 0;background:white;}
+        .process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:3.5rem;}
+        .process-step{position:relative;padding:2rem 2rem 2rem 0;}
+        .process-step::after{content:'';position:absolute;top:2.8rem;right:-1rem;width:2rem;height:1px;background:linear-gradient(90deg,var(--sky),transparent);}
+        .process-step:last-child::after{display:none;}
+        .step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:var(--sky);opacity:.15;line-height:1;}
+        .step-title{font-weight:600;font-size:1rem;margin:.5rem 0 .4rem;}
+        .step-desc{font-size:.88rem;color:var(--muted);line-height:1.6;}
+
+        /* CONTACT */
+        #contact{padding:7rem 0;background:var(--ink);position:relative;overflow:hidden;}
+        #contact::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,168,224,.1),transparent 70%);}
+        .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;position:relative;z-index:1;}
+        .contact-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:white;line-height:1.15;margin-bottom:1.2rem;}
+        .contact-sub{font-size:.98rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:2.5rem;}
+        .contact-methods{display:flex;flex-direction:column;gap:1.4rem;}
+        .contact-method{display:flex;align-items:center;gap:1.2rem;}
+        .contact-method-icon{width:48px;height:48px;background:rgba(255,255,255,.07);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--sky);font-size:1.1rem;flex-shrink:0;}
+        .contact-method-label{font-size:.7rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.1em;}
+        .contact-method-value{color:white;font-weight:600;font-size:.98rem;text-decoration:none;}
+        .contact-method-value:hover{color:var(--sky);}
+        .form-card{background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:2.6rem;}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+        .form-group{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.2rem;}
+        .form-label{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;}
+        .form-input,.form-select,.form-textarea{width:100%;padding:.85rem 1.1rem;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:white;font-size:.93rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s,background .2s;}
+        .form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,.28);}
+        .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--sky);background:rgba(0,168,224,.06);}
+        .form-select option{background:var(--ink);}
+        .form-textarea{resize:vertical;min-height:100px;}
+        .form-submit{width:100%;padding:1.05rem;background:var(--sky);color:white;border:none;border-radius:10px;font-size:.98rem;font-weight:600;cursor:pointer;transition:background .2s,transform .2s;font-family:'DM Sans',sans-serif;}
+        .form-submit:hover{background:var(--sky-deep);transform:translateY(-1px);}
+
+        /* FOOTER */
+        footer{background:#060f1a;color:white;padding:4rem 0 2rem;}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem;}
+        .footer-brand p{font-size:.88rem;color:rgba(255,255,255,.35);margin-top:.9rem;max-width:280px;line-height:1.65;}
+        .footer-bce{font-size:.72rem;color:rgba(255,255,255,.18);margin-top:.4rem;}
+        .footer-col h4{font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.3);margin-bottom:1.2rem;}
+        .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+        .footer-col ul a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.86rem;transition:color .2s;}
+        .footer-col ul a:hover{color:var(--sky);}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.25);}
+
+        /* COOKIE */
+        #cookie{position:fixed;bottom:1.5rem;left:1.5rem;right:1.5rem;max-width:400px;background:white;border-radius:20px;padding:1.5rem;z-index:200;box-shadow:0 8px 40px rgba(0,0,0,.15);display:none;}
+        #cookie p{font-size:.83rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;}
+        .cookie-btns{display:flex;gap:.75rem;}
+        .cookie-btns button{flex:1;padding:.7rem;border-radius:10px;border:none;font-weight:600;font-size:.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;}
+        .cookie-accept{background:var(--sky);color:white;}
+        .cookie-reject{background:var(--section-alt);color:var(--ink);}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .hero-content,.about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+            .hero-visual{order:-1;}
+            .about-quote-card{bottom:1rem;right:1rem;}
+            .numbers-grid{grid-template-columns:repeat(2,1fr);}
+            .footer-grid{grid-template-columns:1fr 1fr;}
         }
-        
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 25px 25px 50px -12px rgb(0 168 224 / 0.15);
-        }
-        
-        .heartbeat {
-            animation: heartbeat 1.5s infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-        }
-        
-        .lang-btn.active {
-            background-color: #00a8e0;
-            color: white;
-            box-shadow: 0 10px 15px -3px rgb(0 168 224);
+        @media(max-width:768px){
+            .nav-links,.nav-cta-wrap{display:none;}
+            .hamburger{display:block;}
+            .numbers-grid{grid-template-columns:repeat(2,1fr);}
+            .form-row{grid-template-columns:1fr;}
+            .footer-grid{grid-template-columns:1fr;}
+            .footer-bottom{flex-direction:column;text-align:center;}
         }
     </style>
 </head>
-<body class="font-sans">
+<body>
 
-    <!-- COOKIE BANNER (RGPD conforme) -->
-    <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 bg-white shadow-2xl border border-gray-200 rounded-3xl p-6 max-w-md z-[9999] hidden">
-        <p class="text-sm text-gray-700 mb-4">
-            Nous utilisons des cookies pour améliorer votre expérience. 
-            En continuant, vous acceptez notre <a href="#" class="underline text-[#00a8e0]">Politique de confidentialité (RGPD)</a>.
-        </p>
-        <div class="flex gap-3">
-            <button onclick="acceptCookies()" class="flex-1 bg-[#00a8e0] text-white font-medium py-3 rounded-2xl text-sm">Accepter</button>
-            <button onclick="rejectCookies()" class="flex-1 border border-gray-300 font-medium py-3 rounded-2xl text-sm">Refuser</button>
+<!-- NAVBAR -->
+<nav id="navbar">
+    <div class="container nav-inner">
+        <a href="#hero" class="logo-wrap">
+            <div class="logo-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 200 200" fill="none">
+                    <rect x="40" y="40" width="120" height="120" rx="20" stroke="white" stroke-width="18"/>
+                    <path d="M60 100 L78 100 L88 68 L98 132 L108 78 L118 118 L132 100 L148 100" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div>
+                <div class="logo-text-main">MUNTU CURA</div>
+                <div class="logo-text-sub" id="logo-sub">Partenaire de soins B2B</div>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#services" id="nav-services">Services</a></li>
+            <li><a href="#about" id="nav-about">À propos</a></li>
+            <li><a href="#process" id="nav-process">Fonctionnement</a></li>
+            <li><a href="#contact" id="nav-contact">Contact</a></li>
+        </ul>
+
+        <div style="display:flex;align-items:center;gap:1rem;" class="nav-cta-wrap">
+            <div class="lang-switch">
+                <button onclick="setLang('fr')" id="lang-fr" class="active">FR</button>
+                <button onclick="setLang('nl')" id="lang-nl">NL</button>
+            </div>
+            <a href="#contact" class="btn-primary" style="font-size:.85rem;padding:.65rem 1.4rem;"><i class="fas fa-handshake"></i> <span id="nav-cta-text">Devenir partenaire</span></a>
+        </div>
+
+        <div style="display:flex;gap:.8rem;align-items:center;">
+            <div class="lang-switch" id="lang-mobile" style="display:none;">
+                <button onclick="setLang('fr')" id="lang-fr-m" class="active">FR</button>
+                <button onclick="setLang('nl')" id="lang-nl-m">NL</button>
+            </div>
+            <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
         </div>
     </div>
+</nav>
 
-    <!-- NAVBAR -->
-    <header class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <nav class="max-w-screen-2xl mx-auto px-6 lg:px-12">
-            <div class="flex items-center justify-between py-5">
-                
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-[#00a8e0] rounded-3xl flex items-center justify-center shadow-inner">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-white" viewBox="0 0 200 200" fill="none">
-                            <rect x="40" y="40" width="120" height="120" rx="20" stroke="white" stroke-width="18"/>
-                            <path d="M60 100 L75 100 L85 70 L95 130 L105 80 L115 120 L130 100 L145 100" 
-                                  stroke="#ff2d55" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" class="heartbeat"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h1 class="logo-font text-3xl font-bold text-[#00a8e0]">MUNTU CURA</h1>
-                        <p class="text-xs text-gray-500 -mt-1 tracking-widest">SOINS À DOMICILE</p>
-                    </div>
-                </div>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+    <a href="#services" onclick="toggleMenu()" id="m-services">Services</a>
+    <a href="#about" onclick="toggleMenu()" id="m-about">À propos</a>
+    <a href="#process" onclick="toggleMenu()" id="m-process">Fonctionnement</a>
+    <a href="#contact" onclick="toggleMenu()" id="m-contact">Contact</a>
+    <a href="tel:+32470852516" class="btn-primary">📞 0470 85 25 16</a>
+</div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-8 text-base font-medium">
-                    <a href="#accueil" onclick="navigateToSection('accueil')" class="hover:text-[#00a8e0]">Accueil</a>
-                    <a href="#a-propos" onclick="navigateToSection('a-propos')" class="hover:text-[#00a8e0]">À propos</a>
-                    <a href="#services" onclick="navigateToSection('services')" class="hover:text-[#00a8e0]">Services</a>
-                    <a href="#contact" onclick="navigateToSection('contact')" class="hover:text-[#00a8e0]">Contact</a>
-                </div>
-
-                <!-- Language Switcher -->
-                <div class="flex items-center bg-gray-100 rounded-3xl p-1 text-sm font-medium">
-                    <button onclick="switchLanguage('fr')" id="lang-fr" class="lang-btn active px-6 py-2 rounded-3xl">🇫🇷 FR</button>
-                    <button onclick="switchLanguage('nl')" id="lang-nl" class="lang-btn px-6 py-2 rounded-3xl">🇳🇱 NL</button>
-                </div>
-
-                <!-- Phone -->
-                <a href="tel:+32470852516" 
-                   class="hidden md:flex items-center gap-2 bg-[#00a8e0] hover:bg-[#0077a8] text-white px-6 py-3 rounded-3xl font-semibold">
-                    <i class="fas fa-phone"></i>
-                    <span class="font-mono">0470 85 25 16</span>
-                </a>
-
-                <!-- Mobile menu button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-gray-700">
-                    <i class="fas fa-bars"></i>
-                </button>
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-mesh"></div>
+    <div class="hero-lines"></div>
+    <div class="container hero-content">
+        <div>
+            <div class="hero-eyebrow">
+                <div class="hero-dot"></div>
+                <span class="hero-eyebrow-text" id="hero-eye">Infirmière indépendante · Partenaire B2B</span>
             </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden bg-white border-t py-6 px-6">
-                <div class="flex flex-col gap-6 text-lg">
-                    <a href="#accueil" onclick="toggleMobileMenu()" class="hover:text-[#00a8e0]">Accueil</a>
-                    <a href="#a-propos" onclick="toggleMobileMenu()" class="hover:text-[#00a8e0]">À propos</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="hover:text-[#00a8e0]">Services</a>
-                    <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-[#00a8e0]">Contact</a>
-                    <a href="tel:+32470852516" class="block text-center bg-[#00a8e0] text-white py-4 rounded-3xl font-semibold">
-                        📞 0470 85 25 16
-                    </a>
-                </div>
+            <h1 class="hero-title">
+                <span id="hero-t1">La compétence</span><br>
+                <em class="accent" id="hero-t2">infirmière</em><br>
+                <span id="hero-t3">à votre service</span>
+            </h1>
+            <p class="hero-subtitle" id="hero-sub">
+                MUNTU CURA propose des prestations infirmières flexibles pour cliniques, hôpitaux, maisons de repos et centres de soins. Expertise humaine, rigoureuse et bilingue.
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary"><i class="fas fa-handshake"></i> <span id="h-btn1">Proposer un partenariat</span></a>
+                <a href="#services" class="btn-ghost" style="color:rgba(255,255,255,.65);"><i class="fas fa-stethoscope"></i> <span id="h-btn2">Voir les services</span></a>
             </div>
-        </nav>
-    </header>
-
-    <main>
-
-        <!-- HERO -->
-        <section id="accueil" class="hero-bg text-white py-24 md:py-32">
-            <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl text-sm font-medium">
-                        <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                        Infirmière indépendante • Soins exclusivement à domicile
-                    </div>
-
-                    <h1 id="hero-title" class="text-5xl md:text-6xl lg:text-7xl font-bold leading-none logo-font">
-                        MUNTU CURA
-                    </h1>
-                    <p id="hero-subtitle" class="text-3xl md:text-4xl text-white/90 font-light">Votre santé, votre rythme, chez vous</p>
-
-                    <p id="hero-description" class="text-xl max-w-xl leading-relaxed">
-                        Soin infirmier et accompagnement en lien avec la spécificité de la personne.<br>
-                        <span class="opacity-90 text-lg">Interventions uniquement chez le patient (Halle et environs).</span>
-                    </p>
-
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#contact" onclick="navigateToSection('contact')" 
-                           class="bg-white text-[#00a8e0] font-semibold px-8 py-4 rounded-3xl flex items-center gap-3 text-lg hover:shadow-2xl">
-                            <i class="fas fa-calendar-check"></i>
-                            <span id="btn-rdv">Prendre rendez-vous à domicile</span>
-                        </a>
-                        <a href="tel:+32470852516" 
-                           class="border-2 border-white font-semibold px-8 py-4 rounded-3xl flex items-center gap-3 text-lg hover:bg-white/10">
-                            <i class="fas fa-phone"></i>
-                            <span id="btn-call">0470 85 25 16</span>
-                        </a>
-                    </div>
-
-                    <div class="flex items-center gap-8 text-sm">
-                        <div>
-                            <i class="fas fa-user-nurse text-3xl"></i>
-                            <div id="nurse-name" class="mt-2">Inf. Yolande NYA<br>Responsable de soins généraux</div>
-                        </div>
-                        <div class="text-xs bg-white/20 px-5 py-3 rounded-3xl">
-                            B2C • Patients particuliers<br>
-                            B2B • Collaborations professionnelles
-                        </div>
-                    </div>
+            <div class="hero-badges">
+                <div class="hero-badge">
+                    <div class="hero-badge-num">100%</div>
+                    <div class="hero-badge-label" id="lb1">investissement</div>
                 </div>
-
-                <!-- Hero image -->
-                <div class="relative">
-                    <img src="https://picsum.photos/id/1015/900/1100" alt="Infirmière MUNTU CURA en visite à domicile" 
-                         class="rounded-3xl shadow-2xl w-full">
-                    <div class="absolute -bottom-6 -left-6 bg-white text-gray-800 px-6 py-4 rounded-3xl shadow-xl flex items-center gap-3 text-sm font-medium">
-                        <i class="fas fa-heart text-red-500 text-2xl heartbeat"></i>
-                        <span id="zorg-op-maat">zorg op maat bij u thuis</span>
-                    </div>
+                <div class="hero-badge" style="border-left:1px solid rgba(255,255,255,.1);padding-left:2rem;">
+                    <div class="hero-badge-num">2</div>
+                    <div class="hero-badge-label" id="lb2">langues</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- À PROPOS -->
-        <section id="a-propos" class="py-20 bg-gray-50">
-            <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
-                <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5">
-                        <img src="https://picsum.photos/id/1005/800/900" alt="Yolande NYA - Infirmière indépendante à domicile" 
-                             class="rounded-3xl shadow-2xl w-full">
-                    </div>
-                    <div class="lg:col-span-7">
-                        <h2 id="about-title" class="text-5xl font-semibold mb-6">À propos de MUNTU CURA</h2>
-                        
-                        <p id="about-text" class="text-lg text-gray-600 leading-relaxed">
-                            MUNTU CURA est une entreprise d'infirmière indépendante crée en décembre 2024. 
-                            Je me déplace exclusivement chez vous pour des soins infirmiers généraux et un accompagnement humain, 
-                            respectueux et entièrement adapté à la spécificité de chaque personne.
-                        </p>
-
-                        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div>
-                                <i class="fas fa-home text-5xl text-[#00a8e0]"></i>
-                                <h4 id="soins-domicile-title" class="font-semibold mt-4">Soins exclusivement à domicile</h4>
-                                <p id="soins-domicile-text" class="text-sm text-gray-600">Halle, Lembeek, Beersel et environs</p>
-                            </div>
-                            <div>
-                                <i class="fas fa-language text-5xl text-[#00a8e0]"></i>
-                                <h4 id="bilingue-title" class="font-semibold mt-4">Bilingue</h4>
-                                <p id="bilingue-text" class="text-sm text-gray-600">Français • Nederlands</p>
-                            </div>
-                            <div>
-                                <blockquote id="muntu-quote" class="italic text-gray-600 border-l-4 border-[#00a8e0] pl-6">
-                                    « Muntu » signifie « personne » dans les langues bantu.<br>
-                                    Chaque patient est unique et au centre de nos soins à domicile.
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICES -->
-        <section id="services" class="py-20">
-            <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
-                <div class="text-center mb-16">
-                    <span class="bg-[#00a8e0] text-white text-sm font-medium px-8 py-3 rounded-3xl">NOS SERVICES • ONZE DIENSTEN</span>
-                    <h2 id="services-title" class="text-5xl font-semibold mt-6">Des soins sur mesure, chez vous</h2>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="service-card bg-white border rounded-3xl p-8">
-                        <div class="text-5xl mb-6">💉</div>
-                        <h3 id="service1-title" class="text-2xl font-semibold">Injections &amp; Prises de sang</h3>
-                        <p id="service1-desc" class="text-gray-600 mt-3">Injections, prises de sang, vaccins et traitements intraveineux directement chez vous.</p>
-                    </div>
-                    <div class="service-card bg-white border rounded-3xl p-8">
-                        <div class="text-5xl mb-6">🩹</div>
-                        <h3 id="service2-title" class="text-2xl font-semibold">Pansements &amp; Soins de plaies</h3>
-                        <p id="service2-desc" class="text-gray-600 mt-3">Soins de plaies chroniques, post-opératoires et ulcères à domicile.</p>
-                    </div>
-                    <div class="service-card bg-white border rounded-3xl p-8">
-                        <div class="text-5xl mb-6">❤️</div>
-                        <h3 id="service3-title" class="text-2xl font-semibold">Accompagnement &amp; Soins chroniques</h3>
-                        <p id="service3-desc" class="text-gray-600 mt-3">Diabète, hypertension, maladies chroniques, soins palliatifs chez vous.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT (FORMULAIRE FONCTIONNEL) -->
-        <section id="contact" class="py-20 bg-[#00a8e0] text-white">
-            <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-5">
-                        <h2 id="contact-title" class="text-5xl font-semibold mb-8">Prêt à prendre soin de vous chez vous ?</h2>
-                        
-                        <div class="space-y-10">
-                            <div class="flex gap-6">
-                                <i class="fas fa-phone text-4xl mt-1"></i>
-                                <div>
-                                    <p class="font-semibold">Téléphone (appel ou WhatsApp)</p>
-                                    <a href="tel:+32470852516" class="text-3xl font-medium">0470 85 25 16</a>
-                                </div>
-                            </div>
-                            <div class="flex gap-6">
-                                <i class="fas fa-envelope text-4xl mt-1"></i>
-                                <div>
-                                    <p class="font-semibold">Email</p>
-                                    <a href="mailto:yolandenya@yahoo.fr" class="text-xl">yolandenya@yahoo.fr</a>
-                                </div>
-                            </div>
-                            <div class="text-sm opacity-90">
-                                Interventions exclusivement à domicile sur Halle, Lembeek, Beersel et environs.<br>
-                                Pas de cabinet médical – je viens chez vous.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FORMULAIRE QUI ENVOIE VRAIMENT L'EMAIL -->
-                    <div class="lg:col-span-7 bg-white/10 backdrop-blur-lg rounded-3xl p-10">
-                        <form id="contactForm" class="space-y-8">
-                            <div class="grid grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-sm mb-2">Nom &amp; Prénom</label>
-                                    <input type="text" name="user_name" id="name" required 
-                                           class="w-full px-6 py-5 rounded-3xl border border-white/30 bg-white/10 focus:outline-none focus:border-white text-white placeholder:text-white/70">
-                                </div>
-                                <div>
-                                    <label class="block text-sm mb-2">Téléphone</label>
-                                    <input type="tel" name="user_phone" id="phone" required 
-                                           class="w-full px-6 py-5 rounded-3xl border border-white/30 bg-white/10 focus:outline-none focus:border-white text-white placeholder:text-white/70">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm mb-2">Votre besoin (soins à domicile)</label>
-                                <textarea name="message" id="message" rows="5" placeholder="Ex : pansement, injection, suivi diabète..." 
-                                          class="w-full px-6 py-5 rounded-3xl border border-white/30 bg-white/10 focus:outline-none focus:border-white text-white placeholder:text-white/70"></textarea>
-                            </div>
-                            <button type="submit" id="submitBtn"
-                                    class="w-full py-6 bg-white text-[#00a8e0] font-semibold text-xl rounded-3xl flex items-center justify-center gap-3 hover:scale-105">
-                                <i class="fas fa-paper-plane"></i>
-                                <span id="btn-send">Envoyer ma demande</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-[#002f3f] text-white py-16">
-        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
-            <div class="grid md:grid-cols-12 gap-12">
-                <div class="md:col-span-4">
-                    <div class="flex items-center gap-3 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" viewBox="0 0 200 200" fill="none">
-                            <rect x="40" y="40" width="120" height="120" rx="20" stroke="white" stroke-width="18"/>
-                            <path d="M60 100 L75 100 L85 70 L95 130 L105 80 L115 120 L130 100 L145 100" stroke="#ff2d55" stroke-width="12"/>
-                        </svg>
-                        <h2 class="logo-font text-4xl">MUNTU CURA</h2>
-                    </div>
-                    <p id="footer-desc" class="text-gray-400">Infirmière indépendante • Soins exclusivement à domicile</p>
-                    <p class="text-xs text-gray-500 mt-12">© 2025 MUNTU CURA • Entreprise indépendante • BCE 1051.693.460</p>
-                </div>
-                
-                <div class="md:col-span-2">
-                    <h4 class="font-semibold mb-6">Liens rapides</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="#accueil" class="hover:text-[#00a8e0]">Accueil</a></li>
-                        <li><a href="#a-propos" class="hover:text-[#00a8e0]">À propos</a></li>
-                        <li><a href="#services" class="hover:text-[#00a8e0]">Services à domicile</a></li>
-                    </ul>
-                </div>
-                
-                <div class="md:col-span-2">
-                    <h4 class="font-semibold mb-6">Informations légales</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="#" class="hover:text-[#00a8e0]">Politique de confidentialité (RGPD)</a></li>
-                        <li><a href="#" class="hover:text-[#00a8e0]">Conditions générales</a></li>
-                        <li><a href="#" class="hover:text-[#00a8e0]">Mentions légales</a></li>
-                    </ul>
-                </div>
-                
-                <div class="md:col-span-4 text-sm text-gray-400">
-                    B2C : Patients particuliers<br>
-                    B2B : Collaborations avec maisons de repos, mutuelles, etc.<br><br>
-                    Interventions rapides à domicile sur Halle et sa région.
+                <div class="hero-badge" style="border-left:1px solid rgba(255,255,255,.1);padding-left:2rem;">
+                    <div class="hero-badge-num" style="font-size:1.8rem;">B2B</div>
+                    <div class="hero-badge-label" id="lb3">partenariats</div>
                 </div>
             </div>
         </div>
-    </footer>
+        <div class="hero-visual">
+            <div class="hero-img-wrap">
+                <div style="width:100%;height:560px;background:linear-gradient(135deg,#0d2b45 0%,#1a4a6e 40%,#0f3a58 70%,#0a2236 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                    <!-- Animated background circles -->
+                    <div style="position:absolute;width:320px;height:320px;border-radius:50%;border:1px solid rgba(0,168,224,.15);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+                    <div style="position:absolute;width:220px;height:220px;border-radius:50%;border:1px solid rgba(0,168,224,.2);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+                    <div style="position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(0,168,224,.08);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+                    <!-- ECG line -->
+                    <svg style="position:absolute;bottom:80px;left:0;right:0;width:100%;" height="60" viewBox="0 0 500 60" preserveAspectRatio="none">
+                        <polyline points="0,30 60,30 80,30 95,5 110,55 125,15 140,45 155,30 220,30 240,30 260,30 280,30 300,30 320,5 335,55 350,15 365,45 380,30 500,30"
+                            fill="none" stroke="rgba(0,168,224,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <!-- Central icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 200 200" fill="none" style="position:relative;z-index:1;">
+                        <rect x="30" y="30" width="140" height="140" rx="28" stroke="rgba(0,168,224,0.6)" stroke-width="8" fill="rgba(0,168,224,0.06)"/>
+                        <rect x="85" y="55" width="30" height="90" rx="8" fill="rgba(0,168,224,0.7)"/>
+                        <rect x="55" y="85" width="90" height="30" rx="8" fill="rgba(0,168,224,0.7)"/>
+                    </svg>
+                    <!-- Top left badge -->
+                    <div style="position:absolute;top:24px;left:24px;background:rgba(0,168,224,.12);border:1px solid rgba(0,168,224,.25);border-radius:10px;padding:.6rem 1rem;color:rgba(255,255,255,.6);font-size:.75rem;font-weight:600;letter-spacing:.06em;">SOINS PROFESSIONNELS</div>
+                    <!-- Bottom right badge -->
+                    <div style="position:absolute;bottom:24px;right:24px;background:rgba(0,168,224,.12);border:1px solid rgba(0,168,224,.25);border-radius:10px;padding:.6rem 1rem;color:rgba(255,255,255,.6);font-size:.75rem;font-weight:600;letter-spacing:.06em;">B2B · BELGIQUE</div>
+                    <!-- Dots grid -->
+                    <svg style="position:absolute;top:20px;right:20px;opacity:.15;" width="80" height="80" viewBox="0 0 80 80">
+                        <pattern id="dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#00a8e0"/></pattern>
+                        <rect width="80" height="80" fill="url(#dots)"/>
+                    </svg>
+                </div>
+                <div class="hero-img-overlay"></div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-card-icon"><i class="fas fa-shield-alt"></i></div>
+                <div>
+                    <div class="hero-card-label" id="hc-label">Statut certifié</div>
+                    <div class="hero-card-value" id="hc-value">Inf. Yolande NYA · BCE 1051.693.460</div>
+                </div>
+            </div>
+            <div class="hero-card2">
+                <div class="num">✓</div>
+                <div id="hc2-text" style="font-size:.75rem;opacity:.85;margin-top:.2rem;">Bilingue FR / NL</div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script>
-        // ====================== EMAILJS - CONFIGURATION (À REMPLACER) ======================
-        // 1. Crée un compte gratuit sur https://www.emailjs.com
-        // 2. Récupère ta Public Key, Service ID et Template ID
-        // 3. Remplace les 3 lignes ci-dessous par tes vraies valeurs
+<!-- PARTNERS -->
+<section id="partners">
+    <div class="container">
+        <p class="partners-label" id="p-label">Nous collaborons avec</p>
+        <div class="partners-logos">
+            <div class="partner-pill"><i class="fas fa-hospital"></i> <span id="p1">Cliniques & Hôpitaux</span></div>
+            <div class="partner-pill"><i class="fas fa-house-chimney-medical"></i> <span id="p2">Maisons de repos (MR/MRS)</span></div>
+            <div class="partner-pill"><i class="fas fa-clinic-medical"></i> <span id="p3">Centres de soins</span></div>
+            <div class="partner-pill"><i class="fas fa-people-group"></i> <span id="p4">Structures d'hébergement</span></div>
+            <div class="partner-pill"><i class="fas fa-hand-holding-medical"></i> <span id="p5">Mutuelles & Associations</span></div>
+        </div>
+    </div>
+</section>
 
-        emailjs.init("VOTRE_PUBLIC_KEY_ICI");   // ← Remplace par ta Public Key (ex: user_abc123)
+<!-- SERVICES -->
+<section id="services">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="tag"><i class="fas fa-stethoscope"></i> <span id="stag">Nos prestations</span></span>
+            <h2 class="section-title" id="s-title">Des soins professionnels<br>pour vos établissements</h2>
+            <p class="section-sub" id="s-sub">Interventions infirmières flexibles adaptées aux besoins de votre structure, en renfort ou en contrat régulier.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal" style="transition-delay:.05s">
+                <div class="service-icon">💉</div>
+                <h3 class="service-title" id="sv1-t">Injections & Prises de sang</h3>
+                <p class="service-desc" id="sv1-d">Injections sous-cutanées, intramusculaires, prises de sang et perfusions pour vos patients hospitalisés ou résidents.</p>
+                <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="service-card reveal" style="transition-delay:.1s">
+                <div class="service-icon">🩹</div>
+                <h3 class="service-title" id="sv2-t">Pansements & Soins de plaies</h3>
+                <p class="service-desc" id="sv2-d">Prise en charge des plaies chroniques, post-opératoires, escarres et ulcères selon les protocoles en vigueur.</p>
+                <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="service-card reveal" style="transition-delay:.15s">
+                <div class="service-icon">❤️</div>
+                <h3 class="service-title" id="sv3-t">Suivi maladies chroniques</h3>
+                <p class="service-desc" id="sv3-d">Diabète, hypertension, soins palliatifs et suivi thérapeutique intégré dans votre équipe de soin.</p>
+                <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="service-card reveal" style="transition-delay:.2s">
+                <div class="service-icon">🔄</div>
+                <h3 class="service-title" id="sv4-t">Renfort & Remplacement</h3>
+                <p class="service-desc" id="sv4-d">Disponibilité flexible pour couvrir absences, pics d'activité ou besoins ponctuels de votre établissement.</p>
+                <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="service-card reveal" style="transition-delay:.25s">
+                <div class="service-icon">📋</div>
+                <h3 class="service-title" id="sv5-t">Coordination de soins</h3>
+                <p class="service-desc" id="sv5-d">Liaison avec médecins, kinés et autres prestataires pour garantir la continuité et la cohérence des soins.</p>
+                <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="service-card reveal" style="transition-delay:.3s">
+                <div class="service-icon">🌍</div>
+                <h3 class="service-title" id="sv6-t">Bilinguisme FR / NL</h3>
+                <p class="service-desc" id="sv6-d">Communication optimale avec vos patients francophones et néerlandophones, atout précieux en Belgique.</p>
+                <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        const SERVICE_ID = "VOTRE_SERVICE_ID";      // ← Ton Service ID (ex: service_abc123)
-        const TEMPLATE_ID = "VOTRE_TEMPLATE_ID";    // ← Ton Template ID (ex: template_abc123)
+<!-- NUMBERS -->
+<section id="numbers">
+    <div class="container">
+        <div class="numbers-grid">
+            <div class="number-item reveal">
+                <div class="number-val"><span class="count" data-target="100">0</span><span style="color:var(--sky)">%</span></div>
+                <div class="number-divider"></div>
+                <div class="number-label" id="n1">Engagement patient</div>
+            </div>
+            <div class="number-item reveal" style="transition-delay:.1s">
+                <div class="number-val"><span class="count" data-target="24">0</span><span style="color:var(--sky)">h</span></div>
+                <div class="number-divider"></div>
+                <div class="number-label" id="n2">Réponse partenariat</div>
+            </div>
+            <div class="number-item reveal" style="transition-delay:.2s">
+                <div class="number-val"><span class="count" data-target="2">0</span></div>
+                <div class="number-divider"></div>
+                <div class="number-label" id="n3">Langues maîtrisées</div>
+            </div>
+            <div class="number-item reveal" style="transition-delay:.3s">
+                <div class="number-val" style="font-size:2.5rem;letter-spacing:-.02em;">BCE</div>
+                <div class="number-divider"></div>
+                <div class="number-label" id="n4">Structure officielle certifiée</div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // ====================== TRADUCTIONS FR / NL ======================
-        const translations = {
-            fr: {
-                'hero-title': 'MUNTU CURA',
-                'hero-subtitle': 'Votre santé, votre rythme, chez vous',
-                'hero-description': 'Soin infirmier et accompagnement en lien avec la spécificité de la personne.<br><span class="opacity-90 text-lg">Interventions uniquement chez le patient (Halle et environs).</span>',
-                'btn-rdv': 'Prendre rendez-vous à domicile',
-                'btn-call': '0470 85 25 16',
-                'nurse-name': 'Inf. Yolande NYA<br>Responsable de soins généraux',
-                'zorg-op-maat': 'zorg op maat bij u thuis',
-                'about-title': 'À propos de MUNTU CURA',
-                'about-text': 'MUNTU CURA est une entreprise d\'infirmière indépendante crée en décembre 2024. Je me déplace exclusivement chez vous pour des soins infirmiers généraux et un accompagnement humain, respectueux et entièrement adapté à la spécificité de chaque personne.',
-                'soins-domicile-title': 'Soins exclusivement à domicile',
-                'soins-domicile-text': 'Halle, Lembeek, Beersel et environs',
-                'bilingue-title': 'Bilingue',
-                'bilingue-text': 'Français • Nederlands',
-                'muntu-quote': '« Muntu » signifie « personne » dans les langues bantu.<br>Chaque patient est unique et au centre de nos soins à domicile.',
-                'services-title': 'Des soins sur mesure, chez vous',
-                'service1-title': 'Injections & Prises de sang',
-                'service1-desc': 'Injections, prises de sang, vaccins et traitements intraveineux directement chez vous.',
-                'service2-title': 'Pansements & Soins de plaies',
-                'service2-desc': 'Soins de plaies chroniques, post-opératoires et ulcères à domicile.',
-                'service3-title': 'Accompagnement & Soins chroniques',
-                'service3-desc': 'Diabète, hypertension, maladies chroniques, soins palliatifs chez vous.',
-                'contact-title': 'Prêt à prendre soin de vous chez vous ?',
-                'btn-send': 'Envoyer ma demande',
-                'footer-desc': 'Infirmière indépendante • Soins exclusivement à domicile'
-            },
-            nl: {
-                'hero-title': 'MUNTU CURA',
-                'hero-subtitle': 'Uw gezondheid, uw ritme, bij u thuis',
-                'hero-description': 'Verpleegkundige zorg en begeleiding afgestemd op de specifieke behoeften van de persoon.<br><span class="opacity-90 text-lg">Enkel interventies bij de patiënt (Halle en omgeving).</span>',
-                'btn-rdv': 'Afspraak aan huis maken',
-                'btn-call': '0470 85 25 16',
-                'nurse-name': 'Verpleegkundige Yolande NYA<br>Verantwoordelijke algemene zorg',
-                'zorg-op-maat': 'zorg op maat bij u thuis',
-                'about-title': 'Over MUNTU CURA',
-                'about-text': 'MUNTU CURA is een onafhankelijke verpleegkundige onderneming opgericht in december 2024. Ik kom uitsluitend bij u thuis voor algemene verpleegkundige zorg en een menselijke, respectvolle begeleiding volledig afgestemd op de specifieke behoeften van elke persoon.',
-                'soins-domicile-title': 'Zorg uitsluitend aan huis',
-                'soins-domicile-text': 'Halle, Lembeek, Beersel en omgeving',
-                'bilingue-title': 'Talen',
-                'bilingue-text': 'Frans • Nederlands',
-                'muntu-quote': '« Muntu » betekent « persoon » in de Bantoetalen.<br>Elke patiënt is uniek en staat centraal in onze zorg aan huis.',
-                'services-title': 'Zorg op maat, bij u thuis',
-                'service1-title': 'Injecties & Bloedafnames',
-                'service1-desc': 'Injecties, bloedafnames, vaccins en intraveneuze behandelingen bij u thuis.',
-                'service2-title': 'Wondverzorging & Verbanden',
-                'service2-desc': 'Chronische wonden, post-operatieve zorg en ulcera aan huis.',
-                'service3-title': 'Begeleiding & Chronische zorg',
-                'service3-desc': 'Diabetes, hypertensie, chronische aandoeningen, palliatieve zorg bij u thuis.',
-                'contact-title': 'Klaar om voor u te zorgen bij u thuis?',
-                'btn-send': 'Stuur mijn aanvraag',
-                'footer-desc': 'Onafhankelijke verpleegkundige • Zorg uitsluitend aan huis'
-            }
-        };
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-img-wrap reveal-left">
+                <div class="about-img">
+                    <div style="width:100%;height:560px;background:linear-gradient(160deg,#0b1929 0%,#143352 45%,#0d2640 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;">
+                        <!-- Background rings -->
+                        <div style="position:absolute;width:400px;height:400px;border-radius:50%;border:1px solid rgba(0,168,224,.08);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+                        <div style="position:absolute;width:280px;height:280px;border-radius:50%;border:1px solid rgba(0,168,224,.12);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+                        <!-- Nurse silhouette SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="180" viewBox="0 0 120 180" fill="none" style="position:relative;z-index:1;">
+                            <!-- Head -->
+                            <circle cx="60" cy="32" r="22" fill="rgba(0,168,224,0.25)" stroke="rgba(0,168,224,0.6)" stroke-width="2"/>
+                            <!-- Nurse cap -->
+                            <rect x="42" y="12" width="36" height="8" rx="2" fill="rgba(0,168,224,0.7)"/>
+                            <rect x="56" y="9" width="8" height="6" rx="1" fill="white" opacity="0.9"/>
+                            <line x1="48" y1="20" x2="72" y2="20" stroke="rgba(0,168,224,0.9)" stroke-width="1.5"/>
+                            <!-- Body / blouse -->
+                            <path d="M25 75 Q28 58 60 55 Q92 58 95 75 L100 145 Q60 155 20 145 Z" fill="rgba(0,168,224,0.18)" stroke="rgba(0,168,224,0.45)" stroke-width="1.5"/>
+                            <!-- Cross on chest -->
+                            <rect x="56" y="80" width="8" height="22" rx="2" fill="rgba(0,168,224,0.8)"/>
+                            <rect x="51" y="86" width="18" height="8" rx="2" fill="rgba(0,168,224,0.8)"/>
+                            <!-- Stethoscope -->
+                            <path d="M78 68 Q90 72 92 85 Q94 96 84 100 Q74 104 70 96" stroke="rgba(0,168,224,0.7)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <circle cx="70" cy="96" r="5" fill="rgba(0,168,224,0.5)" stroke="rgba(0,168,224,0.8)" stroke-width="1.5"/>
+                            <!-- Arms -->
+                            <path d="M25 78 L8 118 Q12 122 18 120 L35 85Z" fill="rgba(0,168,224,0.15)" stroke="rgba(0,168,224,0.3)" stroke-width="1"/>
+                            <path d="M95 78 L112 118 Q108 122 102 120 L85 85Z" fill="rgba(0,168,224,0.15)" stroke="rgba(0,168,224,0.3)" stroke-width="1"/>
+                            <!-- Clipboard -->
+                            <rect x="88" y="100" width="20" height="28" rx="3" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                            <line x1="92" y1="108" x2="104" y2="108" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                            <line x1="92" y1="114" x2="104" y2="114" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                            <line x1="92" y1="120" x2="100" y2="120" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                        </svg>
+                        <!-- Name card -->
+                        <div style="position:relative;z-index:1;text-align:center;">
+                            <div style="color:rgba(0,168,224,0.9);font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;">Inf. Yolande NYA</div>
+                            <div style="color:rgba(255,255,255,.4);font-size:.7rem;margin-top:.3rem;letter-spacing:.08em;">Fondatrice · MUNTU CURA</div>
+                        </div>
+                        <!-- Floating tags -->
+                        <div style="position:absolute;top:30px;left:24px;background:rgba(0,168,224,.15);border:1px solid rgba(0,168,224,.3);border-radius:8px;padding:.5rem .9rem;color:rgba(255,255,255,.7);font-size:.72rem;font-weight:600;">📋 Soins généraux</div>
+                        <div style="position:absolute;bottom:30px;right:24px;background:rgba(0,168,224,.15);border:1px solid rgba(0,168,224,.3);border-radius:8px;padding:.5rem .9rem;color:rgba(255,255,255,.7);font-size:.72rem;font-weight:600;">🌍 FR · NL</div>
+                        <!-- Dots -->
+                        <svg style="position:absolute;bottom:20px;left:20px;opacity:.12;" width="70" height="70" viewBox="0 0 70 70">
+                            <pattern id="dots2" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#00a8e0"/></pattern>
+                            <rect width="70" height="70" fill="url(#dots2)"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="about-quote-card">
+                    <blockquote id="aq">"Muntu signifie personne. Chaque patient, chaque résident mérite une attention singulière."</blockquote>
+                    <cite id="aq-cite">Inf. Yolande NYA · Fondatrice</cite>
+                </div>
+            </div>
+            <div class="about-content reveal-right">
+                <span class="tag"><i class="fas fa-user-nurse"></i> <span id="atag">À propos</span></span>
+                <h2 class="about-title" id="a-title">Une infirmière indépendante,<br>un vrai atout pour votre structure</h2>
+                <p class="about-text" id="a-t1">MUNTU CURA est une entreprise d'infirmière indépendante fondée en décembre 2024 par Yolande NYA. Diplômée et expérimentée, je propose des prestations infirmières de qualité aux structures de soins belges : cliniques, hôpitaux, maisons de repos et centres de soins.</p>
+                <p class="about-text" id="a-t2">Bilingue français/néerlandais, je m'intègre facilement dans vos équipes et m'adapte à vos protocoles. Mon statut indépendant vous offre une flexibilité précieuse : renfort ponctuel, remplacement ou collaboration régulière.</p>
+                <div class="about-features">
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> <span id="af1">Statut indépendant · BCE 1051.693.460</span></div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> <span id="af2">Responsable de soins généraux</span></div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> <span id="af3">Zone : Halle, Lembeek, Beersel & environs</span></div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> <span id="af4">Bilingue FR / NL · Communication fluide</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        let currentLang = 'fr';
+<!-- PROCESS -->
+<section id="process">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="tag"><i class="fas fa-route"></i> <span id="ptag">Collaboration</span></span>
+            <h2 class="section-title" id="p-title">Comment ça fonctionne ?</h2>
+            <p class="section-sub" id="p-sub">Un partenariat simple, rapide et sans engagement bureaucratique lourd.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step reveal" style="transition-delay:.05s">
+                <div class="step-num">01</div>
+                <div class="step-title" id="ps1-t">Premier contact</div>
+                <div class="step-desc" id="ps1-d">Vous me contactez par téléphone, WhatsApp ou via le formulaire pour exposer vos besoins.</div>
+            </div>
+            <div class="process-step reveal" style="transition-delay:.1s">
+                <div class="step-num">02</div>
+                <div class="step-title" id="ps2-t">Évaluation des besoins</div>
+                <div class="step-desc" id="ps2-d">J'analyse votre demande : type de soins, fréquence, protocoles en vigueur dans votre structure.</div>
+            </div>
+            <div class="process-step reveal" style="transition-delay:.15s">
+                <div class="step-num">03</div>
+                <div class="step-title" id="ps3-t">Convention de partenariat</div>
+                <div class="step-desc" id="ps3-d">Nous formalisons la collaboration par une convention claire et adaptée à vos contraintes légales.</div>
+            </div>
+            <div class="process-step reveal" style="transition-delay:.2s">
+                <div class="step-num">04</div>
+                <div class="step-title" id="ps4-t">Démarrage des prestations</div>
+                <div class="step-desc" id="ps4-d">J'intègre votre équipe et prends en charge les soins selon le planning établi ensemble.</div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        function switchLanguage(lang) {
-            currentLang = lang;
-            document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
-            document.getElementById('lang-nl').classList.toggle('active', lang === 'nl');
-            document.documentElement.lang = lang;
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="reveal-left">
+                <span class="tag" style="margin-bottom:1rem;"><i class="fas fa-envelope"></i> <span id="ctag">Contact</span></span>
+                <h2 class="contact-title" id="c-title">Parlons de votre besoin en personnel infirmier</h2>
+                <p class="contact-sub" id="c-sub">Que vous ayez besoin d'un renfort ponctuel ou d'une collaboration régulière, je suis disponible pour en discuter.</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <div class="contact-method-label" id="cm1-l">Téléphone & WhatsApp</div>
+                            <a href="tel:+32470852516" class="contact-method-value">0470 85 25 16</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div class="contact-method-label" id="cm2-l">Email professionnel</div>
+                            <a href="mailto:yolandenya@yahoo.fr" class="contact-method-value">yolandenya@yahoo.fr</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <div class="contact-method-label" id="cm3-l">Zone d'intervention</div>
+                            <span class="contact-method-value" id="cm3-v">Halle · Lembeek · Beersel & environs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-right">
+                <div class="form-card">
+                    <h3 style="color:white;font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:1.5rem;" id="f-title">Demande de partenariat</h3>
+                    <form id="contactForm">
+                        <div class="form-row" style="margin-bottom:1.2rem;">
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label" id="fl1">Structure</label>
+                                <input type="text" name="structure" class="form-input" placeholder="Clinique St-Jean..." required>
+                            </div>
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label" id="fl2">Responsable</label>
+                                <input type="text" name="user_name" id="fi-name" class="form-input" placeholder="Votre nom" required>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-bottom:1.2rem;">
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label" id="fl3">Téléphone</label>
+                                <input type="tel" name="user_phone" id="fi-phone" class="form-input" placeholder="+32..." required>
+                            </div>
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label" id="fl4">Email</label>
+                                <input type="email" name="user_email" class="form-input" placeholder="contact@..." required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="fl5">Type de besoin</label>
+                            <select name="type_besoin" class="form-select form-input">
+                                <option id="fo1" value="renfort">Renfort ponctuel</option>
+                                <option id="fo2" value="remplacement">Remplacement</option>
+                                <option id="fo3" value="regulier">Collaboration régulière</option>
+                                <option id="fo4" value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="fl6">Message</label>
+                            <textarea name="message" id="fi-msg" class="form-textarea" placeholder="Décrivez vos besoins spécifiques..." rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> <span id="f-send">Envoyer la demande</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-            Object.keys(translations[lang]).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) element.innerHTML = translations[lang][key];
-            });
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo-wrap" style="margin-bottom:.5rem;">
+                    <div class="logo-icon" style="width:36px;height:36px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 200 200" fill="none">
+                            <rect x="40" y="40" width="120" height="120" rx="20" stroke="white" stroke-width="18"/>
+                            <path d="M60 100 L78 100 L88 68 L98 132 L108 78 L118 118 L132 100 L148 100" stroke="#fff" stroke-width="11" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text-main" style="font-size:1.4rem;">MUNTU CURA</span>
+                </div>
+                <p id="f-desc">Infirmière indépendante · Partenaire B2B de soins · Belgique</p>
+                <p class="footer-bce">BCE 1051.693.460 · © 2025 MUNTU CURA</p>
+            </div>
+            <div class="footer-col">
+                <h4 id="fc1-h">Navigation</h4>
+                <ul>
+                    <li><a href="#services" id="fc1-1">Services</a></li>
+                    <li><a href="#about" id="fc1-2">À propos</a></li>
+                    <li><a href="#process" id="fc1-3">Fonctionnement</a></li>
+                    <li><a href="#contact" id="fc1-4">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 id="fc2-h">Légal</h4>
+                <ul>
+                    <li><a href="#">RGPD</a></li>
+                    <li><a href="#">CGV</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 id="fc3-h">Contact direct</h4>
+                <ul>
+                    <li><a href="tel:+32470852516">📞 0470 85 25 16</a></li>
+                    <li><a href="mailto:yolandenya@yahoo.fr">✉ yolandenya@yahoo.fr</a></li>
+                    <li><a href="#" style="color:rgba(255,255,255,.3);cursor:default;">📍 Halle & environs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span id="f-rights">© 2025 MUNTU CURA · Tous droits réservés</span>
+            <span>FR · NL · B2B Healthcare Partner</span>
+        </div>
+    </div>
+</footer>
 
-            localStorage.setItem('muntuCuraLang', lang);
+<!-- COOKIE -->
+<div id="cookie">
+    <p id="ck-txt">Nous utilisons des cookies pour améliorer votre expérience. <a href="#" style="color:var(--sky)">Politique RGPD.</a></p>
+    <div class="cookie-btns">
+        <button class="cookie-accept" onclick="ckAccept()" id="ck-acc">Accepter</button>
+        <button class="cookie-reject" onclick="ckReject()" id="ck-rej">Refuser</button>
+    </div>
+</div>
+
+<script>
+// EmailJS — à configurer
+// emailjs.init("VOTRE_PUBLIC_KEY");
+const SERVICE_ID = "VOTRE_SERVICE_ID";
+const TEMPLATE_ID = "VOTRE_TEMPLATE_ID";
+
+const T = {
+    fr: {
+        'logo-sub':'Partenaire de soins B2B',
+        'nav-services':'Services','nav-about':'À propos','nav-process':'Fonctionnement','nav-contact':'Contact',
+        'nav-cta-text':'Devenir partenaire',
+        'm-services':'Services','m-about':'À propos','m-process':'Fonctionnement','m-contact':'Contact',
+        'hero-eye':'Infirmière indépendante · Partenaire B2B',
+        'hero-t1':'La compétence','hero-t2':'infirmière','hero-t3':'à votre service',
+        'hero-sub':'MUNTU CURA propose des prestations infirmières flexibles pour cliniques, hôpitaux, maisons de repos et centres de soins. Expertise humaine, rigoureuse et bilingue.',
+        'h-btn1':'Proposer un partenariat','h-btn2':'Voir les services',
+        'lb1':'investissement','lb2':'langues','lb3':'partenariats',
+        'hc-label':'Statut certifié','hc-value':'Inf. Yolande NYA · BCE 1051.693.460','hc2-text':'Bilingue FR / NL',
+        'p-label':'Nous collaborons avec',
+        'p1':'Cliniques & Hôpitaux','p2':'Maisons de repos (MR/MRS)','p3':'Centres de soins','p4':'Structures d\'hébergement','p5':'Mutuelles & Associations',
+        'stag':'Nos prestations','s-title':'Des soins professionnels<br>pour vos établissements',
+        's-sub':'Interventions infirmières flexibles adaptées aux besoins de votre structure, en renfort ou en contrat régulier.',
+        'sv1-t':'Injections & Prises de sang','sv1-d':'Injections sous-cutanées, intramusculaires, prises de sang et perfusions pour vos patients hospitalisés ou résidents.',
+        'sv2-t':'Pansements & Soins de plaies','sv2-d':'Prise en charge des plaies chroniques, post-opératoires, escarres et ulcères selon les protocoles en vigueur.',
+        'sv3-t':'Suivi maladies chroniques','sv3-d':'Diabète, hypertension, soins palliatifs et suivi thérapeutique intégré dans votre équipe de soin.',
+        'sv4-t':'Renfort & Remplacement','sv4-d':'Disponibilité flexible pour couvrir absences, pics d\'activité ou besoins ponctuels de votre établissement.',
+        'sv5-t':'Coordination de soins','sv5-d':'Liaison avec médecins, kinés et autres prestataires pour garantir la continuité et la cohérence des soins.',
+        'sv6-t':'Bilinguisme FR / NL','sv6-d':'Communication optimale avec vos patients francophones et néerlandophones, atout précieux en Belgique.',
+        'n1':'Engagement patient','n2':'Réponse partenariat','n3':'Langues maîtrisées','n4':'Structure officielle certifiée',
+        'atag':'À propos',
+        'a-title':'Une infirmière indépendante,<br>un vrai atout pour votre structure',
+        'a-t1':'MUNTU CURA est une entreprise d\'infirmière indépendante fondée en décembre 2024 par Yolande NYA. Diplômée et expérimentée, je propose des prestations infirmières de qualité aux structures de soins belges : cliniques, hôpitaux, maisons de repos et centres de soins.',
+        'a-t2':'Bilingue français/néerlandais, je m\'intègre facilement dans vos équipes et m\'adapte à vos protocoles. Mon statut indépendant vous offre une flexibilité précieuse : renfort ponctuel, remplacement ou collaboration régulière.',
+        'af1':'Statut indépendant · BCE 1051.693.460','af2':'Responsable de soins généraux',
+        'af3':'Zone : Halle, Lembeek, Beersel & environs','af4':'Bilingue FR / NL · Communication fluide',
+        'aq':'"Muntu signifie personne. Chaque patient, chaque résident mérite une attention singulière."','aq-cite':'Inf. Yolande NYA · Fondatrice',
+        'ptag':'Collaboration','p-title':'Comment ça fonctionne ?','p-sub':'Un partenariat simple, rapide et sans engagement bureaucratique lourd.',
+        'ps1-t':'Premier contact','ps1-d':'Vous me contactez par téléphone, WhatsApp ou via le formulaire pour exposer vos besoins.',
+        'ps2-t':'Évaluation des besoins','ps2-d':'J\'analyse votre demande : type de soins, fréquence, protocoles en vigueur dans votre structure.',
+        'ps3-t':'Convention de partenariat','ps3-d':'Nous formalisons la collaboration par une convention claire et adaptée à vos contraintes légales.',
+        'ps4-t':'Démarrage des prestations','ps4-d':'J\'intègre votre équipe et prends en charge les soins selon le planning établi ensemble.',
+        'ctag':'Contact','c-title':'Parlons de votre besoin en personnel infirmier',
+        'c-sub':'Que vous ayez besoin d\'un renfort ponctuel ou d\'une collaboration régulière, je suis disponible pour en discuter.',
+        'cm1-l':'Téléphone & WhatsApp','cm2-l':'Email professionnel','cm3-l':'Zone d\'intervention','cm3-v':'Halle · Lembeek · Beersel & environs',
+        'f-title':'Demande de partenariat','fl1':'Structure','fl2':'Responsable','fl3':'Téléphone','fl4':'Email','fl5':'Type de besoin','fl6':'Message',
+        'fo1':'Renfort ponctuel','fo2':'Remplacement','fo3':'Collaboration régulière','fo4':'Autre',
+        'f-send':'Envoyer la demande',
+        'f-desc':'Infirmière indépendante · Partenaire B2B de soins · Belgique',
+        'fc1-h':'Navigation','fc1-1':'Services','fc1-2':'À propos','fc1-3':'Fonctionnement','fc1-4':'Contact',
+        'fc2-h':'Légal','fc3-h':'Contact direct',
+        'f-rights':'© 2025 MUNTU CURA · Tous droits réservés',
+        'ck-acc':'Accepter','ck-rej':'Refuser',
+        'ck-txt':'Nous utilisons des cookies pour améliorer votre expérience.'
+    },
+    nl: {
+        'logo-sub':'B2B-zorgpartner',
+        'nav-services':'Diensten','nav-about':'Over ons','nav-process':'Werkwijze','nav-contact':'Contact',
+        'nav-cta-text':'Partner worden',
+        'm-services':'Diensten','m-about':'Over ons','m-process':'Werkwijze','m-contact':'Contact',
+        'hero-eye':'Onafhankelijke verpleegkundige · B2B-partner',
+        'hero-t1':'Verpleegkundige','hero-t2':'expertise','hero-t3':'in uw dienst',
+        'hero-sub':'MUNTU CURA biedt flexibele verpleegkundige prestaties aan klinieken, ziekenhuizen, woonzorgcentra en zorgcentra. Deskundig, menselijk en tweetalig.',
+        'h-btn1':'Partnerschap voorstellen','h-btn2':'Bekijk diensten',
+        'lb1':'inzet','lb2':'talen','lb3':'partnerschappen',
+        'hc-label':'Gecertificeerde status','hc-value':'Vpl. Yolande NYA · BCE 1051.693.460','hc2-text':'Tweetalig FR / NL',
+        'p-label':'Wij werken samen met',
+        'p1':'Klinieken & Ziekenhuizen','p2':'Woonzorgcentra (WZC)','p3':'Zorgcentra','p4':'Woonstructuren','p5':'Mutualiteiten & Verenigingen',
+        'stag':'Onze diensten','s-title':'Professionele zorg<br>voor uw instelling',
+        's-sub':'Flexibele verpleegkundige interventies afgestemd op de behoeften van uw instelling, als versterking of regulier contract.',
+        'sv1-t':'Injecties & Bloedafnames','sv1-d':'Subcutane, intramusculaire injecties, bloedafnames en infusen voor uw patiënten of bewoners.',
+        'sv2-t':'Wondverzorging & Verbanden','sv2-d':'Behandeling van chronische wonden, post-operatieve zorg, doorligwonden en ulcera.',
+        'sv3-t':'Opvolging chronische ziekten','sv3-d':'Diabetes, hypertensie, palliatieve zorg en therapeutische opvolging in uw zorgteam.',
+        'sv4-t':'Versterking & Vervanging','sv4-d':'Flexibele beschikbaarheid voor afwezigheidsdekking of piekperioden van uw instelling.',
+        'sv5-t':'Zorgcoördinatie','sv5-d':'Samenwerking met artsen en kinesisten voor continuïteit en samenhang van zorg.',
+        'sv6-t':'Tweetaligheid FR / NL','sv6-d':'Optimale communicatie met uw Franstalige en Nederlandstalige patiënten, een troef in België.',
+        'n1':'Patiëntbetrokkenheid','n2':'Reactie partnerschap','n3':'Beheerste talen','n4':'Officieel gecertificeerde structuur',
+        'atag':'Over ons',
+        'a-title':'Een onafhankelijke verpleegkundige,<br>een troef voor uw instelling',
+        'a-t1':'MUNTU CURA is een onafhankelijk verpleegkundig bedrijf opgericht in december 2024 door Yolande NYA. Gediplomeerd en ervaren, bied ik verpleegkundige diensten van hoge kwaliteit aan zorginstellingen: klinieken, ziekenhuizen, woonzorgcentra.',
+        'a-t2':'Tweetalig Frans/Nederlands, integreer ik mij gemakkelijk in uw teams. Mijn zelfstandige statuut biedt u waardevolle flexibiliteit: incidentele versterking, vervanging of regelmatige samenwerking.',
+        'af1':'Zelfstandige status · BCE 1051.693.460','af2':'Verantwoordelijke algemene zorg',
+        'af3':'Werkgebied: Halle, Lembeek, Beersel & omgeving','af4':'Tweetalig FR / NL · Vlotte communicatie',
+        'aq':'"Muntu betekent persoon. Elke patiënt, elke bewoner verdient bijzondere aandacht."','aq-cite':'Vpl. Yolande NYA · Oprichtster',
+        'ptag':'Samenwerking','p-title':'Hoe werkt het?','p-sub':'Een eenvoudig, snel partnerschap zonder bureaucratische rompslomp.',
+        'ps1-t':'Eerste contact','ps1-d':'U neemt contact op per telefoon, WhatsApp of via het formulier om uw behoeften toe te lichten.',
+        'ps2-t':'Behoeftenanalyse','ps2-d':'Ik analyseer uw aanvraag: type zorg, frequentie, protocollen van kracht in uw instelling.',
+        'ps3-t':'Samenwerkingsovereenkomst','ps3-d':'We formaliseren de samenwerking in een duidelijke overeenkomst aangepast aan uw beperkingen.',
+        'ps4-t':'Start van de prestaties','ps4-d':'Ik integreer in uw team en neem de zorg op me volgens het gezamenlijk opgestelde schema.',
+        'ctag':'Contact','c-title':'Laten we spreken over uw verpleegkundige behoeften',
+        'c-sub':'Of u nu tijdelijke versterking of regelmatige samenwerking nodig heeft, ik ben beschikbaar om te bespreken.',
+        'cm1-l':'Telefoon & WhatsApp','cm2-l':'Professioneel e-mailadres','cm3-l':'Werkgebied','cm3-v':'Halle · Lembeek · Beersel & omgeving',
+        'f-title':'Partnerschapsaanvraag','fl1':'Instelling','fl2':'Verantwoordelijke','fl3':'Telefoon','fl4':'E-mail','fl5':'Type behoefte','fl6':'Bericht',
+        'fo1':'Incidentele versterking','fo2':'Vervanging','fo3':'Regelmatige samenwerking','fo4':'Ander',
+        'f-send':'Aanvraag versturen',
+        'f-desc':'Onafhankelijke verpleegkundige · B2B-zorgpartner · België',
+        'fc1-h':'Navigatie','fc1-1':'Diensten','fc1-2':'Over ons','fc1-3':'Werkwijze','fc1-4':'Contact',
+        'fc2-h':'Juridisch','fc3-h':'Direct contact',
+        'f-rights':'© 2025 MUNTU CURA · Alle rechten voorbehouden',
+        'ck-acc':'Accepteren','ck-rej':'Weigeren',
+        'ck-txt':'Wij gebruiken cookies om uw ervaring te verbeteren.'
+    }
+};
+
+let lang = localStorage.getItem('mc_lang') || 'fr';
+
+function setLang(l) {
+    lang = l;
+    ['lang-fr','lang-fr-m'].forEach(id => { const el = document.getElementById(id); if(el) el.classList.toggle('active', l==='fr'); });
+    ['lang-nl','lang-nl-m'].forEach(id => { const el = document.getElementById(id); if(el) el.classList.toggle('active', l==='nl'); });
+    document.documentElement.lang = l;
+    Object.entries(T[l]).forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = val;
+    });
+    localStorage.setItem('mc_lang', l);
+}
+
+function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// Responsive lang switch visibility
+function handleResize() {
+    const isMobile = window.innerWidth < 768;
+    const langMobile = document.getElementById('lang-mobile');
+    const navCtaWrap = document.querySelector('.nav-cta-wrap');
+    if (langMobile) langMobile.style.display = isMobile ? 'flex' : 'none';
+    if (navCtaWrap) navCtaWrap.style.display = isMobile ? 'none' : 'flex';
+}
+
+window.addEventListener('resize', handleResize);
+
+window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => observer.observe(el));
+
+// Counter animation
+const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            const el = e.target;
+            const target = parseInt(el.dataset.target);
+            let cur = 0;
+            const step = Math.max(1, Math.ceil(target / 60));
+            const timer = setInterval(() => {
+                cur = Math.min(cur + step, target);
+                el.textContent = cur;
+                if (cur >= target) clearInterval(timer);
+            }, 20);
+            counterObs.unobserve(el);
         }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count').forEach(el => counterObs.observe(el));
 
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
+// Form submit
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (lang==='fr' ? 'Envoi...' : 'Verzenden...');
+    setTimeout(() => {
+        alert(lang === 'fr'
+            ? '✅ Demande envoyée ! Yolande NYA vous contactera sous 24h.'
+            : '✅ Aanvraag verzonden! Yolande NYA neemt binnen 24u contact op.');
+        this.reset();
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span id="f-send">' + T[lang]['f-send'] + '</span>';
+    }, 1200);
+});
 
-        function navigateToSection(section) {
-            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
-            if (window.innerWidth < 768) toggleMobileMenu();
-        }
+// Cookie
+function ckAccept() { document.getElementById('cookie').style.display='none'; localStorage.setItem('mc_ck','1'); }
+function ckReject()  { document.getElementById('cookie').style.display='none'; localStorage.setItem('mc_ck','0'); }
 
-        function acceptCookies() {
-            document.getElementById('cookieBanner').classList.add('hidden');
-            localStorage.setItem('cookiesAccepted', 'true');
-        }
-
-        function rejectCookies() {
-            document.getElementById('cookieBanner').classList.add('hidden');
-            localStorage.setItem('cookiesAccepted', 'false');
-        }
-
-        // ====================== FORMULAIRE FONCTIONNEL EMAILJS ======================
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('submitBtn');
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Envoi en cours...`;
-            btn.disabled = true;
-
-            const templateParams = {
-                from_name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value,
-                to_email: "yolandenya@yahoo.fr"
-            };
-
-            emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-                .then(() => {
-                    alert(currentLang === 'fr' 
-                        ? '✅ Message envoyé avec succès ! Yolande NYA vous contactera très rapidement.' 
-                        : '✅ Bericht succesvol verzonden! Yolande NYA neemt spoedig contact met u op.');
-                    document.getElementById('contactForm').reset();
-                })
-                .catch((error) => {
-                    console.error('EmailJS error:', error);
-                    alert(currentLang === 'fr' 
-                        ? '❌ Erreur lors de l\'envoi. Merci d\'appeler directement le 0470 85 25 16.' 
-                        : '❌ Fout bij verzenden. Bel alstublieft direct 0470 85 25 16.');
-                })
-                .finally(() => {
-                    btn.innerHTML = originalHTML;
-                    btn.disabled = false;
-                });
-        });
-
-        // ====================== INITIALISATION ======================
-        window.onload = function() {
-            console.log('%c✅ MUNTU CURA – Site complet mis à jour (formulaire EmailJS fonctionnel)', 
-                        'background:#00a8e0;color:#fff;padding:4px 8px;border-radius:9999px;font-size:10px');
-            
-            const savedLang = localStorage.getItem('muntuCuraLang') || 'fr';
-            switchLanguage(savedLang);
-            
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(() => document.getElementById('cookieBanner').classList.remove('hidden'), 1500);
-            }
-        };
-    </script>
+window.onload = () => {
+    handleResize();
+    setLang(lang);
+    if (!localStorage.getItem('mc_ck')) {
+        setTimeout(() => document.getElementById('cookie').style.display='block', 2000);
+    }
+};
+</script>
 </body>
 </html>
